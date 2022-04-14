@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="tongue_twister.css" />
+    <link
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      rel="stylesheet"
+    />
+    <title>Tongue Twister</title>
+  </head>
+  <body>
+    <div id="maindiv">
+      <button id="start" onclick="start()">START</button>
+    </div>
+
+    <div id="info">
+      <p><span id="count">1</span> / 10</p>
+      <span id="icon" class="fas fa-microphone-alt"></span>
+    </div>
+
+    <div id="text">
+      <p id="counter-text">3</p>
+      <p id="correct-text"></p>
+      <p id="speech-text"></p>
+    </div>
+
+    <div id="btn-group">
+      <button id="next-btn">Next</button>
+      <button id="retry-btn">Retry</button>
+      <button id="giveup-btn">Give up</button>
+    </div>
+
+    <div id="end-screen">
+      <h1>Result</h1>
+      <p>rank&nbsp;<span id="rank"></span></p>
+      <button id="play-again">Play again</button>
+    </div>
+    <!-- 
+        1-2 --- C
+        3-5 --- B
+        6-7 --- A
+        8-9 --- A+
+        10 --- S
+     -->
+
+    <script type="text/javascript" src="tongue_twister.js"></script>
+  </body>
+</html>
