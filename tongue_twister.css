@@ -5,21 +5,27 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Lato", sans-serif;
 }
 
 .center-content {
   margin: 25%;
 }
 
-.center-content-end {
+/* .center-content-end {
   top: 0;
   left: 0;
-}
+} */
 
 .center-div {
-  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.grid-div {
+  display: grid;
+  grid-template-rows: 15% 35% 35% 15%;
   align-items: center;
 }
 
@@ -29,7 +35,7 @@ body {
   height: 100vh;
   outline: 4px solid #000;
   outline-offset: -8px;
-  padding: 0 50px;
+  padding: 0 1rem;
 }
 
 #start {
@@ -45,14 +51,15 @@ body {
 }
 
 #info {
-  text-align: center;
-  padding-top: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #info p {
   background-color: lightgreen;
   display: inline-block;
-  padding: 4px;
+  padding: 0.25rem;
   margin-right: 10%;
   margin-left: 10%;
 }
@@ -63,12 +70,21 @@ body {
   vertical-align: middle;
 }
 
+#counter-text {
+  font-size: 2rem;
+}
+
 #correct-text,
 #speech-text {
-  font-size: 3.5vw;
+  font-family: "Merriweather", serif;
+  font-size: 1.75rem;
   font-weight: bold;
   color: #999;
   text-align: center;
+}
+
+#speech-text {
+  color: #181818;
 }
 
 #speech-text span {
@@ -83,18 +99,13 @@ body {
   color: #ff1d00;
 }
 
-#btn-group {
-  text-align: center;
-}
-
 #btn-group button {
   background-color: lightgreen;
   border: none;
-  height: 50px;
-  width: 110px;
-  margin: 0 40px;
+  height: 3rem;
+  width: 5.5rem;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
@@ -105,15 +116,17 @@ body {
 }
 
 #end-screen {
-  /* position: absolute; */
   background-color: aliceblue;
   box-shadow: 0px 0px 23px -1px rgba(0, 0, 0, 0.55);
-  width: 60%;
+  width: 90%;
   height: 60%;
   top: 25%;
   left: 25%;
-  text-align: center;
   user-select: none;
+
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
 
   display: none;
 }
@@ -170,7 +183,7 @@ body {
   border-radius: 3px;
   font-size: 20px;
   color: white;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1rem;
   background-color: hotpink;
   cursor: pointer;
 }
@@ -187,5 +200,32 @@ body {
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  #maindiv {
+    padding: 0 50px;
+  }
+
+  #info {
+    font-size: 1.5rem;
+  }
+
+  #counter-text {
+    font-size: 2.25rem;
+  }
+
+  #correct-text,
+  #speech-text {
+    font-size: 2.5rem;
+  }
+
+  #btn-group button {
+    width: 6.5rem;
+  }
+
+  #end-screen {
+    width: 60%;
   }
 }

@@ -73,9 +73,11 @@ const start = () => {
     } else {
       clearInterval(startCntDwn);
       speechP.style.display = "block";
-      info.style.display = "block";
+      info.style.display = "flex";
       createText();
       maindiv.classList.remove("center-div");
+      maindiv.classList.add("grid-div");
+
       maindiv.removeChild(counterP);
       correctP.style.display = "block";
 
@@ -235,8 +237,9 @@ const giveup = () => {
   info.style.display = "none";
 
   maindiv.appendChild(endScreen);
+  maindiv.classList.remove("grid-div");
   maindiv.classList.add("center-div");
-  endScreen.style.display = "block";
+  endScreen.style.display = "grid";
   endScreen.classList.add("center-content");
 
   switch (doneTexts.length) {
@@ -271,8 +274,7 @@ const giveup = () => {
 };
 
 playAgainBtn.addEventListener("click", () => {
-  endScreen.style.display = "none";
-  start();
+  location.reload();
 });
 
 // ----------------- icon onclick -----------------
