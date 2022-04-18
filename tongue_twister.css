@@ -8,15 +8,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.center-content {
-  margin: 25%;
-}
-
-/* .center-content-end {
-  top: 0;
-  left: 0;
-} */
-
 .center-div {
   display: flex;
   justify-content: center;
@@ -40,12 +31,12 @@ body {
 
 #start {
   margin: 25%;
-  padding: 20px 70px;
+  padding: 1.25rem 4.25rem;
   border: none;
   border-radius: 3px;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: white;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.3rem;
   background-color: hotpink;
   cursor: pointer;
 }
@@ -65,9 +56,8 @@ body {
 }
 
 .fa-microphone-alt {
-  font-size: 30px;
+  font-size: 1.5rem;
   cursor: pointer;
-  vertical-align: middle;
 }
 
 #counter-text {
@@ -177,39 +167,32 @@ body {
 }
 
 #end-screen button {
-  width: 175px;
-  height: 50px;
+  width: 11rem;
+  height: 30rem;
   border: none;
   border-radius: 3px;
-  font-size: 20px;
+  font-size: 1.25rem;
   color: white;
   letter-spacing: 0.1rem;
   background-color: hotpink;
   cursor: pointer;
 }
 
-.slidein {
-  animation: slideIn 1s ease-in;
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(500px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 @media (min-width: 1024px) {
   #maindiv {
-    padding: 0 50px;
+    padding: 0 3rem;
   }
 
-  #info {
+  #counter-text {
+    font-size: 4rem;
+  }
+
+  #info p {
     font-size: 1.5rem;
+  }
+
+  .fa-microphone-alt {
+    font-size: 2rem;
   }
 
   #counter-text {

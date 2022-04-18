@@ -21,6 +21,7 @@ speech.lang = "en-US";
 
 const onResult = (event) => {
   // speech.interimResults = true;
+  console.log("dispatched");
   if (event.results[0][0].transcript.length) {
     speechP.innerHTML = textToUpperCase(event.results[0][0].transcript);
     console.log(event.results[0][0].transcript);
@@ -54,7 +55,7 @@ const maindiv = document.getElementById("maindiv");
 const startbtn = document.getElementById("start");
 maindiv.classList.add("center-div");
 
-// startボタンをクリックした際の処理
+// when start button is clicked
 const start = () => {
   startbtn.style.display = "none";
   maindiv.appendChild(info);
@@ -65,7 +66,6 @@ const start = () => {
   maindiv.appendChild(btnGroup);
   counterP.style.display = "block";
   counterP.style.color = "hotpink";
-  counterP.classList.add("center-content");
 
   const startCntDwn = setInterval(() => {
     if (counterP.innerHTML > 1) {
@@ -240,7 +240,6 @@ const giveup = () => {
   maindiv.classList.remove("grid-div");
   maindiv.classList.add("center-div");
   endScreen.style.display = "grid";
-  endScreen.classList.add("center-content");
 
   switch (doneTexts.length) {
     //2, 3, 2, 2, 1
