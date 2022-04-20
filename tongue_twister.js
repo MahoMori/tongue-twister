@@ -13,7 +13,7 @@ btnGroup.style.display = "none";
 info.style.display = "none";
 
 // ----------------- speech recognition -----------------
-let status = 0;
+let speechStatus = 0;
 
 const speech = new webkitSpeechRecognition();
 speech.continuous = true;
@@ -27,7 +27,7 @@ const onResult = (event) => {
     console.log(event.results[0][0].transcript);
     checkTextFunc();
   }
-  status = 0;
+  speechStatus = 0;
   speech.stop();
 };
 
@@ -67,11 +67,18 @@ const start = () => {
   counterP.style.display = "block";
   counterP.style.color = "hotpink";
 
-  const startCntDwn = setInterval(() => {
-    if (counterP.innerHTML > 1) {
-      counterP.innerHTML -= 1;
-    } else {
-      clearInterval(startCntDwn);
+  const startCntDwn = new Promise((resolve, reject) => {
+    setInterval(() => {
+      if (counterP.innerHTML > 1) {
+        counterP.innerHTML -= 1;
+      } else {
+        resolve("resolved");
+      }
+    }, 1000);
+  });
+
+  startCntDwn.then((resolve) => {
+    if (resolve === "resolved") {
       speechP.style.display = "block";
       info.style.display = "flex";
       createText();
@@ -84,10 +91,32 @@ const start = () => {
       correctP.style.color = "#999";
       speechP.style.color = "#999";
 
-      status = 1;
+      speechStatus = 1;
       speech.start();
     }
-  }, 1000);
+  });
+
+  // const startCntDwn = setInterval(() => {
+  //   if (counterP.innerHTML > 1) {
+  //     counterP.innerHTML -= 1;
+  //   } else {
+  //     clearInterval(startCntDwn);
+  //     speechP.style.display = "block";
+  //     info.style.display = "flex";
+  //     createText();
+  //     maindiv.classList.remove("center-div");
+  //     maindiv.classList.add("grid-div");
+
+  //     maindiv.removeChild(counterP);
+  //     correctP.style.display = "block";
+
+  //     correctP.style.color = "#999";
+  //     speechP.style.color = "#999";
+
+  //     speechStatus = 1;
+  //     speech.start();
+  //   }
+  // }, 1000);
 };
 
 // ----------------- typing -----------------
@@ -99,7 +128,12 @@ const rank = document.getElementById("rank");
 const playAgainBtn = document.getElementById("play-again");
 
 let textLists = [
-  //2, 3, 2, 2, 1
+  // 1-2 --- C
+  // 3-5 --- B
+  // 6-7 --- A
+  // 8-9 --- A+
+  // 10 --- S
+
   "I scream you scream we all scream for ice cream",
   "I saw a kitten eating chicken in the kitchen",
 
@@ -114,11 +148,12 @@ let textLists = [
   "Red lorry yellow lorry",
 
   "I slit the sheet that I slit and on the slitted sheet I sit",
+
+  // ------ other tongue twister ------
   // "Four furious friends fought for the phone."
   // "Smelly shoes and socks shock sisters."
   // "Peter Piper picked a peck of pickled peppers",
   // "How can a clam cram in a clean cream can",
-
   // "I slit the sheet, the sheet I slit, and on the slitted sheet I sit"
 ];
 let doneTexts = [];
@@ -204,11 +239,11 @@ const afterCheck = () => {
 const retry = () => {
   btnGroup.style.display = "none";
   speechP.innerHTML = "";
-  if (status === 1) {
-    status = 0;
+  if (speechStatus === 1) {
+    speechStatus = 0;
     speech.stop();
   }
-  status = 1;
+  speechStatus = 1;
   speech.start();
 };
 
@@ -222,11 +257,11 @@ const next = () => {
   speechP.innerHTML = "";
   createText();
 
-  if (status === 1) {
-    status = 0;
+  if (speechStatus === 1) {
+    speechStatus = 0;
     speech.stop();
   }
-  status = 1;
+  speechStatus = 1;
   speech.start();
 };
 
@@ -280,10 +315,10 @@ playAgainBtn.addEventListener("click", () => {
 const icon = document.getElementById("icon");
 
 icon.addEventListener("click", () => {
-  if (status === 1) {
-    status = 0;
+  if (speechStatus === 1) {
+    speechStatus = 0;
     speech.stop();
   }
-  status = 1;
+  speechStatus = 1;
   speech.start();
 });
