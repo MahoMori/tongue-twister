@@ -138,8 +138,8 @@ body {
 #end-screen p span {
   font-size: 4rem;
   font-weight: bold;
-  color: #34cf8f;
-  text-shadow: 2px 2px #fff, 5px 5px rgba(52, 207, 143, 0.4);
+  /* color: #34cf8f;
+  text-shadow: 2px 2px #fff, 5px 5px rgba(52, 207, 143, 0.4); */
 }
 
 .rank-c {
@@ -168,7 +168,7 @@ body {
 
 #end-screen button {
   width: 11rem;
-  height: 30rem;
+  height: 3rem;
   border: none;
   border-radius: 3px;
   font-size: 1.25rem;

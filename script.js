@@ -119,7 +119,7 @@ const start = () => {
   // }, 1000);
 };
 
-// ----------------- typing -----------------
+// ----------------- tongue twister -----------------
 const nextBtn = document.getElementById("next-btn");
 const retryBtn = document.getElementById("retry-btn");
 const giveupBtn = document.getElementById("giveup-btn");
@@ -139,9 +139,9 @@ let textLists = [
 
   "Freshly fried fresh fish",
   "He threw three free throws",
-  "Betty Botter bought some butter but the butter is bitter",
+  "Four furious friends fought for the phone.",
 
-  "Fred fed Ted bread and Ted fed Fred bread",
+  "Betty bought some butter but the butter is bitter",
   "She sells seashells by the seashore",
 
   "Nine nice night nurses nursing nicely",
@@ -150,7 +150,7 @@ let textLists = [
   "I slit the sheet that I slit and on the slitted sheet I sit",
 
   // ------ other tongue twister ------
-  // "Four furious friends fought for the phone."
+  // "Fred fed Ted bread and Ted fed Fred bread",
   // "Smelly shoes and socks shock sisters."
   // "Peter Piper picked a peck of pickled peppers",
   // "How can a clam cram in a clean cream can",
@@ -282,27 +282,27 @@ const giveup = () => {
     case 1:
     case 2:
       rank.textContent = "C";
-      rank.classList.add = "rank-c";
+      rank.className = "rank-c";
       break;
     case 3:
     case 4:
     case 5:
       rank.textContent = "B";
-      rank.classList.add = "rank-b";
+      rank.className = "rank-b";
       break;
     case 6:
     case 7:
       rank.textContent = "A";
-      rank.classList.add = "rank-a";
+      rank.className = "rank-a";
       break;
     case 8:
     case 9:
       rank.innerHTML = "A<sup>+</sup>";
-      rank.classList.add = "rank-a-plus";
+      rank.className = "rank-a-plus";
       break;
     case 10:
       rank.innerHTML = "S";
-      rank.classList.add = "rank-s";
+      rank.className = "rank-s";
       break;
   }
 };
