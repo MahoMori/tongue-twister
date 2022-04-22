@@ -95,28 +95,6 @@ const start = () => {
       speech.start();
     }
   });
-
-  // const startCntDwn = setInterval(() => {
-  //   if (counterP.innerHTML > 1) {
-  //     counterP.innerHTML -= 1;
-  //   } else {
-  //     clearInterval(startCntDwn);
-  //     speechP.style.display = "block";
-  //     info.style.display = "flex";
-  //     createText();
-  //     maindiv.classList.remove("center-div");
-  //     maindiv.classList.add("grid-div");
-
-  //     maindiv.removeChild(counterP);
-  //     correctP.style.display = "block";
-
-  //     correctP.style.color = "#999";
-  //     speechP.style.color = "#999";
-
-  //     speechStatus = 1;
-  //     speech.start();
-  //   }
-  // }, 1000);
 };
 
 // ----------------- tongue twister -----------------
